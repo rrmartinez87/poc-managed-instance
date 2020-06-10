@@ -138,7 +138,6 @@ resource "azurerm_subnet" "subnet-test" {
 }
 
 
-/*
 // Create the Managed Instance
 // This resource can't be configured using Terraform Azure provider API
 resource "null_resource" "create_managed_instance" { 
@@ -146,4 +145,3 @@ resource "null_resource" "create_managed_instance" {
     command = "az sql mi create --resource-group ${azurerm_resource_group.rg.name} --name ${join(local.separator, [var.managed_instance_name, random_uuid.poc.result])} --location ${azurerm_resource_group.rg.location} --admin-user ${var.admin_user} --admin-password ${var.admin_password} --license-type ${var.license_type} --subnet ${azurerm_subnet.subnet.id} --capacity ${var.capacity} --storage ${var.storage} --edition ${var.edition} --family ${var.family} --proxy-override ${local.connection_type} --minimal-tls-version ${local.tls_version} --public-data-endpoint-enabled ${local.public-data-endpoint-enabled}"
   }
 }
-*/
