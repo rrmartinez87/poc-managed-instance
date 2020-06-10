@@ -19,7 +19,7 @@ variable "create_database_server" {
 variable "resource_group_name" { 
     description = "The name of the resource group in which to create the elastic pool. This must be the same as the resource group of the underlying SQL server."
     type = string
-    default = "rg-sql-poc"
+    default = "rg-sql-managedinstance-poc"
 }
 
 variable "location" { 
