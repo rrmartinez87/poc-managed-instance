@@ -53,7 +53,7 @@ variable "admin_user"  {
 variable "admin_password" { 
     description = ""
     type = string
-    default = "_Adm123!_Adm123!_Adm123!"
+    default = "_Adm123$_Adm123$_Adm123$"
 }
 
 variable "license_type" { 
