@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Clone repository') {
         steps {
-            git branch: 'master', credentialsId: 'Github', url: 'https://github.com/rrmartinez87/poc-managed-instancee.git'
+            git branch: 'master', credentialsId: 'Github', url: 'https://github.com/rrmartinez87/poc-managed-instance.git'
             }
         }
 	stage('Set Terraform path') {
