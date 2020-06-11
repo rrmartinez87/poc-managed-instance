@@ -1,4 +1,7 @@
 pipeline {
+ options {
+        timeout(time: 6, unit: 'HOURS') 
+    }
     parameters {
         choice(
             choices: ['create', 'destroy'],
