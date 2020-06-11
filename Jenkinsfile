@@ -1,7 +1,5 @@
 pipeline {
- options {
-        timeout(time: 6, unit: 'HOURS') 
-    }
+  
     parameters {
         choice(
             choices: ['create', 'destroy'],
@@ -53,16 +51,17 @@ pipeline {
                         [envVariable: 'StorageAccountAccessKey', name: 'storagekey', secretType: 'Secret']
                     ]
                 )
+	     timeout(time: 6, unit: 'HOURS')	    
             }
 	        steps {
                 sh '''
-		export TF_VAR_client_id=$TF_VAR_client_id
+	export TF_VAR_client_id=$TF_VAR_client_id
         export TF_VAR_client_secret=$TF_VAR_client_secret
-		terraform init -no-color -backend-config="storage_account_name=sqlmitfstatestgtest" \
+	terraform init -no-color -backend-config="storage_account_name=sqlmitfstatestgtest" \
         -backend-config="container_name=sqlmitfstate" \
         -backend-config="access_key=$StorageAccountAccessKey" \
         -backend-config="key=terraform.tfstate"
-		terraform plan -no-color -out out.plan
+	terraform plan -no-color -out out.plan
         terraform apply -no-color out.plan
                 '''
             }
