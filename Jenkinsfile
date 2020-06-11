@@ -51,7 +51,6 @@ pipeline {
                         [envVariable: 'StorageAccountAccessKey', name: 'storagekey', secretType: 'Secret']
                     ]
                 )
-	     timeout(time: 6, unit: 'HOURS')	    
             }
 	        steps {
                 sh '''
@@ -62,9 +61,11 @@ pipeline {
         -backend-config="access_key=$StorageAccountAccessKey" \
         -backend-config="key=terraform.tfstate"
 	terraform plan -no-color -out out.plan
-        terraform apply -no-color out.plan
+        timeout(time: 6, unit: 'HOURS') {
+	terraform apply -no-color out.plan
                 '''
-            }
+	}
+	}
         }
 		stage('Terraform Destroy') {
             when {
