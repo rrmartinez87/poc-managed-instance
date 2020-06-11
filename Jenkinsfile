@@ -7,6 +7,9 @@ pipeline {
         )
     }
     agent any
+    options {
+        timeout(time: 6, unit: 'HOURS') 
+    }
     stages {
 
         stage('Az login') {
