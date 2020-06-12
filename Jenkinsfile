@@ -53,6 +53,8 @@ pipeline {
                 )
             }
 	        steps {
+		options {
+                timeout(time: 6, unit: 'HOURS')
                 sh '''
 	export TF_VAR_client_id=$TF_VAR_client_id
         export TF_VAR_client_secret=$TF_VAR_client_secret
@@ -65,6 +67,7 @@ pipeline {
                 '''
 	   }
         }
+     }
 		stage('Terraform Destroy') {
             when {
                 expression { params.REQUESTED_ACTION == 'destroy' }
