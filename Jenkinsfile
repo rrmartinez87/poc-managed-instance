@@ -55,6 +55,7 @@ pipeline {
 	        steps {
 		options {
                 timeout(time: 6, unit: 'HOURS')
+			}
                 sh '''
 	export TF_VAR_client_id=$TF_VAR_client_id
         export TF_VAR_client_secret=$TF_VAR_client_secret
@@ -65,7 +66,6 @@ pipeline {
 	terraform plan -no-color -out out.plan
         terraform apply -no-color out.plan
                 '''
-	   }
         }
      }
 		stage('Terraform Destroy') {
