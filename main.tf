@@ -162,7 +162,7 @@ resource "azurerm_virtual_network_peering" "vnet-managed-instance-peering" {
   virtual_network_name = azurerm_virtual_network.vnet.name
   remote_virtual_network_id = azurerm_virtual_network.vnet_test.id
 }
-
+/*
 // Create the Managed Instance
 // This resource can't be configured using Terraform Azure provider API
 resource "null_resource" "create_managed_instance" { 
@@ -188,7 +188,7 @@ resource "null_resource" "create_managed_database" {
     null_resource.create_managed_instance
   ]
 }
-
+*/
 /*
 //--- Create Managed Instance setting up TLS and connection type (ProxyOverride parameter in PowerShell)
 //--- Managed Instance resource creation is not supported by Terraform native API
@@ -271,7 +271,7 @@ resource "azurerm_network_interface" "ni" {
 
   ip_configuration {
     name                          = var.ip_configuration_name
-    subnet_id                     = azurerm_subnet.subnet.id
+    subnet_id                     = azurerm_subnet.subnet-test.id
     private_ip_address_allocation = var.private_ip_address_allocation
     private_ip_address            = var.private_ip_address
     public_ip_address_id          = azurerm_public_ip.ip.id
