@@ -9,4 +9,5 @@ locals {
   separator = "-"
   service_delegation_name = "Microsoft.Sql/managedInstances"
   public-data-endpoint-enabled = false
+  managed_instance_create_timeout = "6h"
 }
