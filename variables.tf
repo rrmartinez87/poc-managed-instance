@@ -47,7 +47,7 @@ variable "subnet_name" {
 variable "subnet_address_prefixes" {
     description = "The address prefixes to use for the subnet."
     type = list(string)
-    default     = ["10.0.0.0/24"]
+    default     = ["10.0.3.0/24"]
 }
 
 variable "delegation_name" {
@@ -135,7 +135,7 @@ variable "vnet_test_name" {
 variable "vnet_test_address_space" {
     description = "The name of the virtual network for testing Managed Instance access."
     type = list(string)
-    default = ["10.1.0.0/16"]
+    default = ["10.0.0.0/16"]
 }
 
 variable "subnet_test_name" {
@@ -147,7 +147,7 @@ variable "subnet_test_name" {
 variable "subnet_test_address_prefixes" {
     description = "The name of the virtual network for testing Managed Instance access."
     type = list(string)
-    default = ["10.0.1.0/24"]
+    default = ["10.0.4.0/24"]
 }
 
 //--- VNet Peerings variables
@@ -199,7 +199,7 @@ variable "ip_configuration_name" {
 variable "private_ip_address_allocation" {
     description = "private ip address allocation"
     type = string
-    default = "static"
+    default = "Dynamic"
 }
 variable "private_ip_address" {
     description = "private ip address allocation"
