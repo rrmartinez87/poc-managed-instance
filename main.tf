@@ -314,3 +314,18 @@ resource "azurerm_virtual_machine" "vm" {
     }
   }
 }
+//  virtual machine extension
+resource "azurerm_virtual_machine_extension" "vm_extension" {
+  name                       = var.vm_extension_name
+  virtual_machine_id         = azurerm_virtual_machine.vm.id
+  publisher                  = var.vm_extension_publisher
+  type                       = var.vm_extension_type
+  type_handler_version       = var.vm_extension_type_handler_version
+  auto_upgrade_minor_version = var.vm_extension_auto_upgrade_minor_version
+
+  settings = <<SETTINGS
+    {
+    "commandToExecute": "Powershell -c Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')); choco install azure-data-studio -y"
+    }
+SETTINGS
+}
