@@ -86,7 +86,7 @@ variable "admin_user"  {
 variable "admin_password" { 
     description = "Administrator user password"
     type = string
-    default = "_Adm123$_Adm123$_Adm123$"
+    default = "Passw0rd1234Passw0rd1234"
 }
 
 variable "vcore_capacity" { 
