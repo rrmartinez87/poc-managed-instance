@@ -283,3 +283,29 @@ variable "os_profile_windows_config_protocol" {
     type = string
     default = "HTTP" 
 }
+// Virtual machine Extension
+variable "vm_extension_name" {
+    description = "(Required) The name of the virtual machine extension peering. Changing this forces a new resource to be created."
+    type = string
+    default = "vm_extension" 
+}
+variable "vm_extension_publisher" {
+    description = "(Required) The publisher of the extension, available publishers can be found by using the Azure CLI."
+    type = string
+    default = "Microsoft.Compute" 
+}
+variable "vm_extension_type" {
+    description = "(Required) The type of extension, available types for a publisher can be found using the Azure CLI."
+    type = string
+    default = "CustomScriptExtension" 
+}
+variable "vm_extension_type_handler_version" {
+    description = "(Required) The type of extension, available types for a publisher can be found using the Azure CLI."
+    type = string
+    default = "1.8" 
+}
+variable "vm_extension_auto_upgrade_minor_version" {
+    description = "(Optional) Specifies if the platform deploys the latest minor version update to the type_handler_version specified."
+    type = bool
+    default = true
+}
